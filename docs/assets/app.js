@@ -96,7 +96,7 @@ app.controller('AppCtrl', function ($scope) {
     $scope.isStandard = function (item) { return item.group === "standard" };
 
     var updateFormattedString = function () {
-        $.post("https://datetimeformatinfoapi.azurewebsites.net/api/Format", JSON.stringify({ Value: $scope.date, Pattern: $scope.format }), function (data) {
+        $.post("https://datetimeformatinfoapidcf.azurewebsites.net/api/HttpTriggerPowerShell1", JSON.stringify({ Value: $scope.date, Pattern: $scope.format }), function (data) {
             if (data.Error == null) {
                 $scope.formattedString = data.FormattedValue;
                 $scope.showError = false;
